@@ -36,6 +36,20 @@ echo -e "Instalação do ZoneMinder no GNU/Linux Ubuntu Server 18.04.x\n"
 echo -e "Após a instalação do ZoneMinder acessar a URL: http://`hostname -I | cut -d ' ' -f1`/zm/\n"
 sleep 5
 #
+echo -e "Adicionando o Repositório Universal do Apt, aguarde..."
+	# opção do comando: &>> (redirecionar a saída padrão)
+	add-apt-repository universe &>> $LOG
+echo -e "Repositório adicionado com sucesso!!!, continuando com o script..."
+sleep 5
+echo
+#
+echo -e "Adicionando o Repositório Multiversão do Apt, aguarde..."
+	# opção do comando: &>> (redirecionar a saída padrão)
+	add-apt-repository multiverse &>> $LOG
+echo -e "Repositório adicionado com sucesso!!!, continuando com o script..."
+sleep 5
+echo
+#
 echo -e "Atualizando as listas do Apt, aguarde..."
 	# opção do comando: &>> (redirecionar a saída padrão)
 	sudo apt update
