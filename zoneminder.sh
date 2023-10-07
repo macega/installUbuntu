@@ -130,6 +130,6 @@ echo -e "Criando o Serviço do ZoneMinder, aguarde..."
 	systemctl enable zoneminder &>> $LOG
 	systemctl restart zoneminder &>> $LOG
     systemctl reload apache2 &>> $LOG
-echo -e "Serviço criado com sucesso!!!, continuando com o script..."
+echo -e "Serviço criado com sucesso!, continuando com o script..."
 sleep 5
 echo
