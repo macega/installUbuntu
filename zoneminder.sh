@@ -1,7 +1,5 @@
-# Variável da Data Inicial para calcular o tempo de execução do script (VARIÁVEL MELHORADA)
 # opção do comando date: +%T (Time)
 HORAINICIAL=$(date +%T)
-#
 # Variáveis para validar o ambiente, verificando se o usuário e "root", versão do ubuntu e kernel
 # opções do comando id: -u (user), opções do comando: lsb_release: -r (release), -s (short), 
 # opões do comando uname: -r (kernel release), opções do comando cut: -d (delimiter), -f (fields)
@@ -9,19 +7,15 @@ HORAINICIAL=$(date +%T)
 USUARIO=$(id -u)
 UBUNTU=$(lsb_release -rs)
 KERNEL=$(uname -r | cut -d'.' -f1,2)
-#
 # Variável do caminho do Log dos Script utilizado nesse curso (VARIÁVEL MELHORADA)
 # opções do comando cut: -d (delimiter), -f (fields)
 # $0 (variável de ambiente do nome do comando)
 LOG="/var/log/$(echo $0 | cut -d'/' -f2)"
-#
 # Declarando as variáveis para criação da Base de Dados do ZoneMinder
 USER="root"
 PASSWORD="cn22250011i"
-#
 # Declarando as variáveis para o download do PPA do ZoneMinder (Link atualizado no dia 22/07/2020)
 ZONEMINDER="ppa:iconnor/zoneminder-1.36"
-#
 # Verificando se o usuário é Root, Distribuição é >=18.04 e o Kernel é >=4.15 <IF MELHORADO)
 # [ ] = teste de expressão, && = operador lógico AND, == comparação de string, exit 1 = A maioria dos erros comuns na execução
 clear
@@ -132,7 +126,7 @@ sleep 5
 echo
 #
 echo -e "Criando o Serviço do ZoneMinder, aguarde..."
-	# opção do comando: &>> (redirecionar a saída padrão)
+	# opção do comando: &>> (redirecionar a saída padrão).
 	systemctl enable zoneminder &>> $LOG
 	systemctl restart zoneminder &>> $LOG
     systemctl reload apache2 &>> $LOG
